@@ -51,7 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BugTrackerModel.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Dashboard.cs" />
+    <Compile Include="Migrations\201801270816317_new tables.cs" />
+    <Compile Include="Migrations\201801270816317_new tables.Designer.cs">
+      <DependentUpon>201801270816317_new tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Print.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -61,6 +69,12 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801270816317_new tables.resx">
+      <DependentUpon>201801270816317_new tables.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

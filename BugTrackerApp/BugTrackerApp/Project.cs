@@ -7,21 +7,16 @@ using System.Threading.Tasks;
 
 namespace BugTrackerApp
 {
-
+    
     public class Project
     {
-        private static int lastProjectNumber = 0;
-        #region Constructor
-        public Project()
-        {
-            ProjectId = ++lastProjectNumber;
-        }
-        #endregion
+
         #region Properties
+        [Key]
         public int ProjectId { get; private set; }
+        [Required, MinLength(1), MaxLength(50)]
         public string ProjectTitle { get; set; }
         public string ProjectDescription { get; set; }
-        public List<Issue> Issues = new List<Issue>();
         #endregion
     }
 }

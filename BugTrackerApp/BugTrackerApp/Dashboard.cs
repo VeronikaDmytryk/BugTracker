@@ -1,5 +1,4 @@
-﻿using BugTrackerApp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +8,7 @@ namespace BugTrackerApp
 {
     public static class Dashboard
     {
-        private static List<Project> Projects = new List<Project>();
+        private static BugTrackerModel db = new BugTrackerModel();
 
         public static Project CreateProject(string projectTitle,
                                      string projectDescription)
@@ -19,7 +18,8 @@ namespace BugTrackerApp
                 ProjectTitle = projectTitle,
                 ProjectDescription = projectDescription
             };
-            Projects.Add(project);
+            db.Projects.Add(project);
+            db.SaveChanges();
             return project;
         }
 
@@ -27,11 +27,10 @@ namespace BugTrackerApp
                                      string issueTitle,
                                      string issueDescription,
                                      string issueAssignee,
-                                     IssueStatus issueStatus = IssueStatus.ToDo,
-                                     IssueLabel issueLabel = IssueLabel.Task
+                                     IssueLabel issueLabel = IssueLabel.Task,
+                                     IssueStatus issueStatus = IssueStatus.ToDo
                                      )
         {
-            var project = Projects.Where(p => p.ProjectId == projectId).FirstOrDefault();
             Issue issue = new Issue
             {
                 ProjectId = projectId,
@@ -41,25 +40,40 @@ namespace BugTrackerApp
                 IssueLabel = issueLabel,
                 IssueAssignee = issueAssignee,
             };
-            project.Issues.Add(issue);
+            db.Issues.Add(issue);
+            db.SaveChanges();
             return issue;
+        }
+
+        public static void LeaveCommentForIssue(int issueId, string commentBody)
+        {
+            var comment = new Comment
+            {
+                IssueId = issueId,
+                CommentBody = commentBody,
+            };
+            db.Comments.Add(comment);
+            db.SaveChanges();
+        }
+
+        public static List<Comment> GetCommentsByIssueId(int issueId)
+        {
+            return db.Comments.Where(c => c.IssueId == issueId).OrderByDescending(c => c.CommentTime).ToList();
         }
 
         public static List<Project> ShowAllProjects()
         {
-            return Projects;
+            return db.Projects.ToList();
         }
 
         public static Project GetProjectById(int projectId)
         {
-            var project = Projects.Where(proj => proj.ProjectId == projectId).FirstOrDefault();
-            return project;
+            return db.Projects.Where(proj => proj.ProjectId == projectId).FirstOrDefault();
         }
-
+      
         public static List<Issue> ShowAllIssues(int projectId)
         {
-            var project = Projects.Where(p => p.ProjectId == projectId).FirstOrDefault();
-            return project.Issues;
+            return db.Issues.Where(issue => issue.ProjectId == projectId).OrderByDescending(issue=>issue.IssueDate).ToList();
         }
     }
 }
