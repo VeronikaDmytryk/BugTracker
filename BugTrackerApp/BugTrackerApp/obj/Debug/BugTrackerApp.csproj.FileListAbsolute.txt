@@ -13,16 +13,31 @@ C:\Users\Veronika\Documents\Github\New folder\BugTracker\BugTrackerApp\BugTracke
 C:\Users\Veronika\Documents\Github\New folder\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.exe
 C:\Users\Veronika\Documents\Github\New folder\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.pdb
 C:\Users\Veronika\Documents\Github\New folder\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.Migrations.newfields.resources
-C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.exe.config
-C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.exe
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.pdb
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.dll
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.xml
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csprojResolveAssemblyReference.cache
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csproj.CoreCompileInputs.cache
-C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.exe
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.pdb
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.Migrations.newtables.resources
 C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csproj.GenerateResource.Cache
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.exe.config
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.exe
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.pdb
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.dll
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.xml
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csprojResolveAssemblyReference.cache
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.Migrations.newtables.resources
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csproj.GenerateResource.Cache
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.exe
+C:\Users\Veronika\Documents\WORKS\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.pdb
+C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.Migrations.MaxLengthofissueDescription.resources
+C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.dll.config
+C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Debug\BugTrackerApp.dll
+C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.dll
+C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.csprojResolveAssemblyReference.cache
+C:\Users\Veronika\Documents\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Debug\BugTrackerApp.Migrations.AddedemailFieldtoComments.resources

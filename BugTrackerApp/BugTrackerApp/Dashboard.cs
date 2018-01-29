@@ -45,12 +45,13 @@ namespace BugTrackerApp
             return issue;
         }
 
-        public static void LeaveCommentForIssue(int issueId, string commentBody)
+        public static void LeaveCommentForIssue(int issueId, string commentBody, string email)
         {
             var comment = new Comment
             {
                 IssueId = issueId,
                 CommentBody = commentBody,
+                Email = email
             };
             db.Comments.Add(comment);
             db.SaveChanges();
@@ -74,6 +75,11 @@ namespace BugTrackerApp
         public static List<Issue> ShowAllIssues(int projectId)
         {
             return db.Issues.Where(issue => issue.ProjectId == projectId).OrderByDescending(issue=>issue.IssueDate).ToList();
+        }
+
+        public static List<Issue> GetIssuesByAssignee(string email)
+        {
+            return db.Issues.Where(issue => issue.IssueAssignee == email).ToList();
         }
     }
 }

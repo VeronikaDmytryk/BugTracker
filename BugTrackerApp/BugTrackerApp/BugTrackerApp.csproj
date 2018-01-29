@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EB8563EF-5DF9-4934-8D01-3A3E769FE2F5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>BugTrackerApp</RootNamespace>
     <AssemblyName>BugTrackerApp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -30,6 +30,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -58,9 +61,16 @@
     <Compile Include="Migrations\201801270816317_new tables.Designer.cs">
       <DependentUpon>201801270816317_new tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801280612586_MaxLength of issueDescription.cs" />
+    <Compile Include="Migrations\201801280612586_MaxLength of issueDescription.Designer.cs">
+      <DependentUpon>201801280612586_MaxLength of issueDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801290058348_Added emailField to Comments.cs" />
+    <Compile Include="Migrations\201801290058348_Added emailField to Comments.Designer.cs">
+      <DependentUpon>201801290058348_Added emailField to Comments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Print.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Issue.cs" />
@@ -74,6 +84,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801270816317_new tables.resx">
       <DependentUpon>201801270816317_new tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801280612586_MaxLength of issueDescription.resx">
+      <DependentUpon>201801280612586_MaxLength of issueDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801290058348_Added emailField to Comments.resx">
+      <DependentUpon>201801290058348_Added emailField to Comments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

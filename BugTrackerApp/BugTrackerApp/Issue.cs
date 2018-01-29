@@ -35,7 +35,7 @@ namespace BugTrackerApp
         public DateTime IssueDate { get; private set; } = DateTime.Now;
         [Required, MaxLength(50, ErrorMessage = "Title shouldn't be longer than 50 characters ")]
         public string IssueTitle { get; set; }
-        [Required]
+        [Required, MaxLength(500, ErrorMessage = "Description shouldn't be longer than 500 characters ")]
         public string IssueDescription { get; set; }
         [Required]
         public IssueStatus IssueStatus { get; set; }
