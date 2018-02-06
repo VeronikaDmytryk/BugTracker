@@ -15,6 +15,7 @@ namespace BugTrackerApp
         public string CommentBody { get; set; }
         public DateTime CommentTime { get; private set; } = DateTime.Now;
         public string Email { get; set; }
+        public bool Deleted { get; set; } = false;
 
         [ForeignKey("Issue")]
         public int IssueId { get; set; }

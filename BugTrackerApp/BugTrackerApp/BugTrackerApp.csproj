@@ -69,6 +69,10 @@
     <Compile Include="Migrations\201801290058348_Added emailField to Comments.Designer.cs">
       <DependentUpon>201801290058348_Added emailField to Comments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201802061032046_delete field added.cs" />
+    <Compile Include="Migrations\201802061032046_delete field added.Designer.cs">
+      <DependentUpon>201802061032046_delete field added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Print.cs" />
     <Compile Include="Project.cs" />
@@ -90,6 +94,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801290058348_Added emailField to Comments.resx">
       <DependentUpon>201801290058348_Added emailField to Comments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802061032046_delete field added.resx">
+      <DependentUpon>201802061032046_delete field added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -42,7 +42,8 @@ namespace BugTrackerApp
         [Required]
         public IssueLabel IssueLabel { get; set; }
         public string IssueAssignee { get; set; }
-        
+        public bool Deleted { get; set; } = false;
+
 
         [ForeignKey("Project")]
         public int ProjectId { get; set; }

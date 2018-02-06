@@ -16,11 +16,44 @@ namespace BugTrackerApp
             Project project = new Project
             {
                 ProjectTitle = projectTitle,
-                ProjectDescription = projectDescription
+                ProjectDescription = projectDescription,
+                Deleted = false
             };
             db.Projects.Add(project);
             db.SaveChanges();
             return project;
+        }
+
+        public static Project EditProject(Project project)
+        {
+            if (project == null)
+            {
+                throw new ArgumentNullException("account", "Invalid Account");
+            }
+            Project oldproject = GetProjectById(project.ProjectId);
+
+            oldproject.ProjectTitle = project.ProjectTitle;
+            oldproject.ProjectDescription = project.ProjectDescription;
+
+            db.SaveChanges();
+
+            return project;
+        }
+
+        public static Project ArchiveProject(int id)
+        {
+            Project currentProject = GetProjectById(id);
+
+            if (currentProject == null)
+            {
+                throw new ArgumentNullException("account", "Invalid Account");
+            }
+
+            currentProject.Deleted = true;
+
+            db.SaveChanges();
+
+            return currentProject;
         }
 
         public static Issue CreateIssue(int projectId,
@@ -59,27 +92,27 @@ namespace BugTrackerApp
 
         public static List<Comment> GetCommentsByIssueId(int issueId)
         {
-            return db.Comments.Where(c => c.IssueId == issueId).OrderByDescending(c => c.CommentTime).ToList();
+            return db.Comments.Where(c => c.IssueId == issueId && !c.Deleted ).OrderByDescending(c => c.CommentTime).ToList();
         }
 
         public static List<Project> ShowAllProjects()
         {
-            return db.Projects.ToList();
+            return db.Projects.Where(proj => !proj.Deleted).ToList();
         }
 
         public static Project GetProjectById(int projectId)
         {
-            return db.Projects.Where(proj => proj.ProjectId == projectId).FirstOrDefault();
+            return db.Projects.Where(proj => proj.ProjectId == projectId && proj.Deleted != true).FirstOrDefault();
         }
       
         public static List<Issue> ShowAllIssues(int projectId)
         {
-            return db.Issues.Where(issue => issue.ProjectId == projectId).OrderByDescending(issue=>issue.IssueDate).ToList();
+            return db.Issues.Where(issue => issue.ProjectId == projectId && !issue.Deleted ).OrderByDescending(issue=>issue.IssueDate).ToList();
         }
 
         public static List<Issue> GetIssuesByAssignee(string email)
         {
-            return db.Issues.Where(issue => issue.IssueAssignee == email).ToList();
+            return db.Issues.Where(issue => issue.IssueAssignee == email && !issue.Deleted).ToList();
         }
     }
 }

@@ -13,10 +13,11 @@ namespace BugTrackerApp
 
         #region Properties
         [Key]
-        public int ProjectId { get; private set; }
+        public int ProjectId { get; set; }
         [Required, MinLength(1), MaxLength(50)]
         public string ProjectTitle { get; set; }
         public string ProjectDescription { get; set; }
+        public bool Deleted { get; set; } = false;
         #endregion
     }
 }

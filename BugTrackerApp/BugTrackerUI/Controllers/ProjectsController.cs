@@ -9,85 +9,85 @@ using System.Web.Mvc;
 using BugTrackerApp;
 
 namespace BugTrackerUI.Controllers
-{
-    public class ProjectsController : Controller
     {
-        private BugTrackerModel db = new BugTrackerModel();
-
-        // GET: Projects
-        public ActionResult Index()
+        public class ProjectsController : Controller
         {
-            var projects = Dashboard.ShowAllProjects();
-            return View(projects);
-        }
+            private BugTrackerModel db = new BugTrackerModel();
 
-        // GET: Projects/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            // GET: Projects
+            public ActionResult Index()
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-            return View(project);
-        }
-
-        // GET: Projects/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Projects/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProjectId,ProjectTitle,ProjectDescription")] Project project)
-        {
-            if (ModelState.IsValid)
-            {
-                Dashboard.CreateProject(project.ProjectTitle, project.ProjectDescription);
-                return RedirectToAction("Index");
+                var projects = Dashboard.ShowAllProjects();
+                return View(projects);
             }
 
-            return View(project);
-        }
+            // GET: Projects/Details/5
+            public ActionResult Details(int? id)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Project project = Dashboard.GetProjectById(id.Value);
+                if (project == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(project);
+            }
 
-        // GET: Projects/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
+            // GET: Projects/Create
+            public ActionResult Create()
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View();
             }
-            Project project = db.Projects.Find(id);
-            if (project == null)
-            {
-                return HttpNotFound();
-            }
-            return View(project);
-        }
 
-        // POST: Projects/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProjectId,ProjectTitle,ProjectDescription")] Project project)
-        {
-            if (ModelState.IsValid)
+            // POST: Projects/Create
+            // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+            [HttpPost]
+            [ValidateAntiForgeryToken]
+            public ActionResult Create([Bind(Include = "ProjectId,ProjectTitle,ProjectDescription")] Project project)
             {
-                db.Entry(project).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    Dashboard.CreateProject(project.ProjectTitle, project.ProjectDescription);
+                    return RedirectToAction("Index");
+                }
+
+                return View(project);
             }
-            return View(project);
-        }
+
+            // GET: Projects/Edit/5
+            public ActionResult Edit(int? id)
+            {
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Project project = Dashboard.GetProjectById(id.Value);
+                if (project == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(project);
+            }
+
+            // POST: Projects/Edit/5
+            // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+            // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+            [HttpPost]
+            [ValidateAntiForgeryToken]
+            public ActionResult Edit([Bind(Include = "ProjectId,ProjectTitle,ProjectDescription")] Project project)
+            {
+                if (ModelState.IsValid)
+                {
+                    Dashboard.EditProject(project);
+                    return RedirectToAction("Index");
+                }
+                return View(project);
+            }
+
 
         // GET: Projects/Delete/5
         public ActionResult Delete(int? id)
@@ -96,7 +96,7 @@ namespace BugTrackerUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Project project = db.Projects.Find(id);
+            Project project = Dashboard.GetProjectById(id.Value);
             if (project == null)
             {
                 return HttpNotFound();
@@ -109,19 +109,18 @@ namespace BugTrackerUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Project project = db.Projects.Find(id);
-            db.Projects.Remove(project);
-            db.SaveChanges();
+            Dashboard.ArchiveProject(id);
             return RedirectToAction("Index");
         }
 
+
         protected override void Dispose(bool disposing)
-        {
-            if (disposing)
             {
-                db.Dispose();
+                if (disposing)
+                {
+                    db.Dispose();
+                }
+                base.Dispose(disposing);
             }
-            base.Dispose(disposing);
         }
     }
-}
