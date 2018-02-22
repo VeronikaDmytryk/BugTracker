@@ -1,0 +1,73 @@
+﻿@model BugTrackerApp.Issue
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create a new task</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New Task</h4>
+        <hr />
+        @Html.HiddenFor(model => model.ProjectId)
+        <div class="form-group">
+            <div class="col-md-2 control-label">Type of the task: </div>
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.IssueLabel, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IssueLabel, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">Task Status: </div>
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.IssueStatus, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IssueStatus, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-2 control-label">Task Title: </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IssueTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IssueTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">Task Description: </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IssueDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IssueDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-2 control-label">Task Assignee: </div>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IssueAssignee, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IssueAssignee, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

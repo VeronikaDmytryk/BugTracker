@@ -13,7 +13,7 @@ namespace BugTrackerApp
         [Key]
         public int CommentId { get; set; }
         public string CommentBody { get; set; }
-        public DateTime CommentTime { get; private set; } = DateTime.Now;
+        public DateTime CommentTime { get; set; } = DateTime.Now;
         public string Email { get; set; }
         public bool Deleted { get; set; } = false;
 

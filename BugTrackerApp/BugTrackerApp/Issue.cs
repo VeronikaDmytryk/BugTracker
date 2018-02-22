@@ -31,8 +31,8 @@ namespace BugTrackerApp
     {
         #region Props
         [Key]
-        public int IssueId { get; private set; }
-        public DateTime IssueDate { get; private set; } = DateTime.Now;
+        public int IssueId { get; set; }
+        public DateTime IssueDate { get; set; } = DateTime.Now;
         [Required, MaxLength(50, ErrorMessage = "Title shouldn't be longer than 50 characters ")]
         public string IssueTitle { get; set; }
         [Required, MaxLength(500, ErrorMessage = "Description shouldn't be longer than 500 characters ")]

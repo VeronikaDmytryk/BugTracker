@@ -1,0 +1,74 @@
+﻿@model BugTrackerApp.Issue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Issue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Project.ProjectTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Project.ProjectTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueLabel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueLabel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueAssignee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueAssignee)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IssueId }) |
+    @Html.ActionLink("Back to List", "Index", new { id = Model.ProjectId })
+</p>
