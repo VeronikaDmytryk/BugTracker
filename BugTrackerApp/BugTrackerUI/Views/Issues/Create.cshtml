@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>New Task</h4>
         <hr />
         @Html.HiddenFor(model => model.ProjectId)
         <div class="form-group">
@@ -65,7 +64,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new {id = Model.ProjectId })
 </div>
 
 @section Scripts {

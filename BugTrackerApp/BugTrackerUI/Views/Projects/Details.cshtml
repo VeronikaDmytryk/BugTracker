@@ -4,20 +4,19 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Project Details</h2>
 
 <div>
-    <h4>
-        @Html.DisplayFor(model => model.ProjectTitle)
-    </h4>
-    <p>
-        @Html.DisplayFor(model => model.ProjectDescription)
-    </p>
-    <hr />
-    <h3>Issues</h3>
-    <p>Will be here soon</p>
-
-
+    <table class="table">
+        <tr>
+            <td>Title</td>
+            <td>@Html.DisplayFor(model => model.ProjectTitle)</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>@Html.DisplayFor(model => model.ProjectDescription)</td>
+        </tr>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectId }) |

@@ -22,3 +22,50 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.Bug,
+.Task,
+.Crash,
+.Feature,
+.Documentation {
+    width: 15px;
+    height: 15px;
+    background-image: url("https://www.iconexperience.com/_img/o_collection_png/green_dark_grey/512x512/plain/bug.png");
+    background-size: contain;
+}
+
+.Bug {
+    background: orange;
+}
+
+.Task {
+    background: blue;
+}
+
+.label-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: inset 0px 3px rgba(0,0,0,0.2);
+    float: left;
+    margin: 5px;
+}
+
+.Crash {
+    background: red;
+}
+
+
+.Feature {
+    background: green;
+}
+
+.Documentation {
+    background: grey;
+}
+
+.legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}

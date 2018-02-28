@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BugTrackerApp;
+using BugTrackerUI.Models.ViewModels;
 
 namespace BugTrackerUI.Controllers
 {
@@ -18,15 +19,24 @@ namespace BugTrackerUI.Controllers
         public ActionResult Index(int? id)
         {
             var comments = Dashboard.GetCommentsByIssueId(id.Value);
-            return View(comments);
+            CommentsModel CommentsData = new CommentsModel
+            {
+                Comments = comments,
+                IssueId = id.Value
+            };
+            return View(CommentsData);
         }
 
 
         // GET: Comments/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.IssueId = new SelectList(db.Issues, "IssueId", "IssueTitle");
-            return View();
+            var IssueId = id.Value;
+            var comment = new Comment()
+            {
+                IssueId = id.Value
+            };
+            return View(comment);
         }
 
         // POST: Comments/Create
@@ -35,15 +45,13 @@ namespace BugTrackerUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public ActionResult Create([Bind(Include = "CommentId,CommentBody,CommentTime,Email,Deleted,IssueId")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentId,CommentBody,Email,IssueId")] Comment comment)
         {
             if (ModelState.IsValid)
             {
                 Dashboard.LeaveCommentForIssue(comment.IssueId,comment.CommentBody, HttpContext.User.Identity.Name);
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new {id = comment.IssueId});
             }
-
-            ViewBag.IssueId = new SelectList(db.Issues, "IssueId", "IssueTitle", comment.IssueId);
             return View(comment);
         }
 

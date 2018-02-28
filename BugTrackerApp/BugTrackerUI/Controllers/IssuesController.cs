@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using BugTrackerApp;
+using BugTrackerUI.Models.ViewModels;
 
 namespace BugTrackerUI.Controllers
 {
@@ -18,8 +19,13 @@ namespace BugTrackerUI.Controllers
         public ActionResult Index(int? id)
         {
             var issues = Dashboard.ShowAllIssues(id.Value);
-           // return View(new { issuesList = issues, projectId = id.Value });
-            return View(issues);
+            var Data = new TasksModel
+            {
+                Issues = issues,
+                ProjectId = id.Value
+            };
+
+            return View(Data);
         }
 
         // GET: Issues/Details/5
@@ -39,9 +45,13 @@ namespace BugTrackerUI.Controllers
         }
 
         // GET: Issues/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return View();
+            var issue = new Issue()
+            {
+                ProjectId = id.Value
+            };
+            return View(issue);
         }
 
         // POST: Issues/Create
@@ -49,7 +59,7 @@ namespace BugTrackerUI.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IssueTitle,IssueDescription,IssueStatus,IssueLabel,IssueAssignee")] Issue issue)
+        public ActionResult Create([Bind(Include = "ProjectId, IssueTitle,IssueDescription,IssueStatus,IssueLabel,IssueAssignee")] Issue issue)
         {
             if (ModelState.IsValid)
             {

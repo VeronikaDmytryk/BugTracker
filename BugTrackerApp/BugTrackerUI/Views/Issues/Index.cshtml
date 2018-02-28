@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BugTrackerApp.Issue>
+﻿@model BugTrackerUI.Models.ViewModels.TasksModel
 
 @{
     ViewBag.Title = "Tasks";
@@ -7,57 +7,88 @@
 <h2>Tasks</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { id = Model.ProjectId })
 </p>
-<table class="table">
-    <tr>
-        <th>
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IssueTitle)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IssueDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IssueStatus)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IssueAssignee)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IssueDate)
-        </th>
-        <th>Actions</th>
-    </tr>
+@if (Model.Issues.Count != 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Assignee
+            </th>
+            <th>
+                Date
+            </th>
+            <th>Actions</th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            <i class="@Html.DisplayFor(modelItem => item.IssueLabel)"></i>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IssueTitle)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IssueDescription)
-        </td>
-        <td>
-            <div class="@Html.DisplayFor(modelItem => item.IssueStatus)">@Html.DisplayFor(modelItem => item.IssueStatus)</div>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IssueAssignee)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IssueDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.IssueId, projectId = item.ProjectId }, null) |
-            @Html.ActionLink("Details", "Details", new { id = item.IssueId, projectId = item.ProjectId }, null) |
-            @Html.ActionLink("Comments", "Index", "Comments", new { id = item.IssueId }, null) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IssueId, projectId = item.ProjectId }, null)
-        </td>
-    </tr>
+        @foreach (var item in Model.Issues)
+        {
+            <tr>
+                <td>
+                    <div class="label-icon @Html.DisplayFor(modelItem => item.IssueLabel)"></div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueTitle)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDescription)
+                </td>
+                <td>
+                    <div class="@Html.DisplayFor(modelItem => item.IssueStatus)">@Html.DisplayFor(modelItem => item.IssueStatus)</div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueAssignee)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssueDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.IssueId, projectId = item.ProjectId }, null) |
+                    @Html.ActionLink("Details", "Details", new { id = item.IssueId, projectId = item.ProjectId }, null) |
+                    @Html.ActionLink("Comments", "Index", "Comments", new { id = item.IssueId }, null) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.IssueId, projectId = item.ProjectId }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+    <hr/>
+    <div class="legend">
+        <div class="legend-item">
+            <div class="label-icon Bug"></div>
+            Bug
+        </div>
+        <div>
+            <div class="label-icon Task"></div>
+            Task
+        </div>
+        <div>
+            <div class="label-icon Crash"></div>
+            Crash
+        </div>
+        <div>
+            <div class="label-icon Feature"></div>
+            Feature
+        </div>
+        <div>
+            <div class="label-icon Documentation"></div>
+            Documentation
+        </div>
+    </div>
 }
-
-</table>
+else
+{
+    <h4>There are no task yet</h4>
+}

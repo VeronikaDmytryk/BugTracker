@@ -1,0 +1,16 @@
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\BugTrackerApp.dll.config
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\BugTrackerApp.dll
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\BugTrackerApp.pdb
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\EntityFramework.dll
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\EntityFramework.xml
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.csprojResolveAssemblyReference.cache
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.Migrations.newtables.resources
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.Migrations.MaxLengthofissueDescription.resources
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.Migrations.AddedemailFieldtoComments.resources
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.Migrations.deletefieldadded.resources
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.csproj.GenerateResource.Cache
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.csproj.CoreCompileInputs.cache
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.dll
+C:\Users\Veronika\Documents\FrontEnd Dev\Github\BugTracker\BugTrackerApp\BugTrackerApp\obj\Release\BugTrackerApp.pdb
